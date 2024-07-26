@@ -10,7 +10,7 @@ d3.csv("data/economic_indicators_2023.csv").then(data => {
     });
 
     // Set up the margins and dimensions
-    const margin = { top: 20, right: 30, bottom: 40, left: 90 },
+    const margin = { top: 20, right: 30, bottom: 40, left: 120 }, // Increased left margin
           width = 800 - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
 
@@ -63,7 +63,7 @@ d3.csv("data/economic_indicators_2023.csv").then(data => {
     // Add y-axis label
     svg.append("text")
         .attr("class", "axis-label")
-        .attr("x", -margin.left)
+        .attr("x", -margin.left / 2)
         .attr("y", -10)
         .style("text-anchor", "middle")
         .text("Country");
