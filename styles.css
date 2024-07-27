@@ -18,7 +18,7 @@ h1 {
 .flip-card {
     background-color: transparent;
     width: 800px;
-    height: 500px;
+    height: 600px;
     perspective: 1000px;
     margin-top: 20px;
 }
@@ -43,6 +43,9 @@ h1 {
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flip-card-front {
