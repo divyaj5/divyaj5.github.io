@@ -19,8 +19,8 @@ h1 {
     background-color: transparent;
     width: 800px;
     height: 500px;
-    border: 1px solid #f1f1f1;
     perspective: 1000px; /* 3D effect */
+    margin-top: 20px;
 }
 
 .flip-card-inner {
@@ -32,7 +32,7 @@ h1 {
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card-inner.flipped {
     transform: rotateY(180deg);
 }
 
@@ -92,4 +92,11 @@ h1 {
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
