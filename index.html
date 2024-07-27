@@ -8,8 +8,29 @@
 </head>
 <body>
     <h1>Global Economic Indicators 2023</h1>
-    <div id="container"></div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div id="container"></div>
+            </div>
+            <div class="flip-card-back">
+                <h2>Key Points</h2>
+                <ul>
+                    <li>United States has the highest GDP.</li>
+                    <li>Germany has the highest trade percentage.</li>
+                    <li>South Africa has the highest unemployment rate.</li>
+                    <li>China and India are major economies with significant trade activities.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button onclick="flipCard()">Flip Card</button>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        function flipCard() {
+            document.querySelector('.flip-card-inner').classList.toggle('flipped');
+        }
+    </script>
 </body>
 </html>
