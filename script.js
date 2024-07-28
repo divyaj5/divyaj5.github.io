@@ -109,9 +109,13 @@ function updateKeyPoints(indicator) {
         ];
     }
 
+    console.log("Key Points:", keyPoints); // Debugging log
+
     keyPoints.forEach(point => {
         const li = document.createElement('li');
         li.textContent = point;
         keyPointsContainer.appendChild(li);
     });
+
+    console.log("Updated key points container:", keyPointsContainer.innerHTML); // Debugging log
 }
