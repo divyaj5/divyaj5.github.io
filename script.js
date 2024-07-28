@@ -10,11 +10,15 @@ d3.csv("data/economic_indicators_2023.csv").then(loadedData => {
         d["Unemployment Total (% of labor force)"] = +d["Unemployment Total (% of labor force)"];
     });
 
+    console.log("Data loaded:", data); // Debugging log
+
     // Initially show GDP data
     updateChart("GDP (current US$)");
 });
 
 function updateChart(indicator) {
+    console.log("Updating chart with indicator:", indicator); // Debugging log
+
     // Set up the margins and dimensions
     const margin = { top: 20, right: 30, bottom: 40, left: 120 }, // Increased left margin
           width = 800 - margin.left - margin.right,
