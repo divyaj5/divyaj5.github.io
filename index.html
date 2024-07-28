@@ -29,11 +29,8 @@
             </div>
             <div class="flip-card-back">
                 <h2>Key Points</h2>
-                <ul>
-                    <li>United States has the highest GDP.</li>
-                    <li>Germany has the highest trade percentage.</li>
-                    <li>South Africa has the highest unemployment rate.</li>
-                    <li>China and India are major economies with significant trade activities.</li>
+                <ul id="key-points">
+                    <!-- Key points will be populated by JavaScript -->
                 </ul>
             </div>
         </div>
@@ -50,6 +47,7 @@
         document.querySelectorAll('input[name="indicator"]').forEach((elem) => {
             elem.addEventListener('change', (event) => {
                 updateChart(event.target.value);
+                updateKeyPoints(event.target.value);
             });
         });
     </script>
