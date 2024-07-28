@@ -14,6 +14,7 @@ d3.csv("data/economic_indicators_2023.csv").then(loadedData => {
 
     // Initially show GDP data
     updateChart("GDP (current US$)");
+    updateKeyPoints("GDP (current US$)");
 });
 
 function updateChart(indicator) {
@@ -80,4 +81,37 @@ function updateChart(indicator) {
         .attr("y", -10)
         .style("text-anchor", "middle")
         .text("Country");
+}
+
+function updateKeyPoints(indicator) {
+    console.log("Updating key points with indicator:", indicator); // Debugging log
+    const keyPointsContainer = document.getElementById('key-points');
+    keyPointsContainer.innerHTML = '';
+
+    let keyPoints = [];
+    if (indicator === "GDP (current US$)") {
+        keyPoints = [
+            "United States has the highest GDP.",
+            "China has the second highest GDP.",
+            "Japan is also a major economy in terms of GDP."
+        ];
+    } else if (indicator === "Trade (% of GDP)") {
+        keyPoints = [
+            "Germany has the highest trade percentage.",
+            "South Korea has a significant trade percentage.",
+            "Mexico also has a high trade percentage."
+        ];
+    } else if (indicator === "Unemployment Total (% of labor force)") {
+        keyPoints = [
+            "South Africa has the highest unemployment rate.",
+            "Brazil has a significant unemployment rate.",
+            "India also has a notable unemployment rate."
+        ];
+    }
+
+    keyPoints.forEach(point => {
+        const li = document.createElement('li');
+        li.textContent = point;
+        keyPointsContainer.appendChild(li);
+    });
 }
