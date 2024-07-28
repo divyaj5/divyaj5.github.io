@@ -8,6 +8,20 @@
 </head>
 <body>
     <h1>Global Economic Indicators 2023</h1>
+    <div class="filters">
+        <label>
+            <input type="radio" name="indicator" value="GDP (current US$)" checked>
+            GDP
+        </label>
+        <label>
+            <input type="radio" name="indicator" value="Trade (% of GDP)">
+            Trade
+        </label>
+        <label>
+            <input type="radio" name="indicator" value="Unemployment Total (% of labor force)">
+            Unemployment
+        </label>
+    </div>
     <div class="flip-card">
         <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -31,6 +45,13 @@
         function flipCard() {
             document.querySelector('.flip-card-inner').classList.toggle('flipped');
         }
+
+        // Event listeners for the filters
+        document.querySelectorAll('input[name="indicator"]').forEach((elem) => {
+            elem.addEventListener('change', (event) => {
+                updateChart(event.target.value);
+            });
+        });
     </script>
 </body>
 </html>
