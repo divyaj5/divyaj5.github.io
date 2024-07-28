@@ -1,18 +1,27 @@
 // script.js
 
 // Load the data
-d3.csv("data/economic_indicators_2023.csv").then(data => {
-    // Process the data
+let data;
+d3.csv("data/economic_indicators_2023.csv").then(loadedData => {
+    data = loadedData;
     data.forEach(d => {
         d["GDP (current US$)"] = +d["GDP (current US$)"];
         d["Trade (% of GDP)"] = +d["Trade (% of GDP)"];
         d["Unemployment Total (% of labor force)"] = +d["Unemployment Total (% of labor force)"];
     });
 
+    // Initially show GDP data
+    updateChart("GDP (current US$)");
+});
+
+function updateChart(indicator) {
     // Set up the margins and dimensions
     const margin = { top: 20, right: 30, bottom: 40, left: 120 }, // Increased left margin
           width = 800 - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
+
+    // Remove the old SVG if it exists
+    d3.select("#container").selectAll("*").remove();
 
     // Create an SVG container
     const svg = d3.select("#container").append("svg")
@@ -23,7 +32,7 @@ d3.csv("data/economic_indicators_2023.csv").then(data => {
 
     // Set up the scales
     const x = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d["GDP (current US$)"])])
+        .domain([0, d3.max(data, d => d[indicator])])
         .range([0, width]);
 
     const y = d3.scaleBand()
@@ -38,7 +47,7 @@ d3.csv("data/economic_indicators_2023.csv").then(data => {
         .attr("class", "bar")
         .attr("x", 0)
         .attr("y", d => y(d.Country))
-        .attr("width", d => x(d["GDP (current US$)"]))
+        .attr("width", d => x(d[indicator]))
         .attr("height", y.bandwidth());
 
     // Add the x-axis
@@ -58,7 +67,7 @@ d3.csv("data/economic_indicators_2023.csv").then(data => {
         .attr("x", width / 2)
         .attr("y", height + margin.bottom - 5)
         .style("text-anchor", "middle")
-        .text("GDP (current US$)");
+        .text(indicator);
 
     // Add y-axis label
     svg.append("text")
@@ -67,24 +76,4 @@ d3.csv("data/economic_indicators_2023.csv").then(data => {
         .attr("y", -10)
         .style("text-anchor", "middle")
         .text("Country");
-
-    // Add tooltips for additional data (Trade and Unemployment)
-    const tooltip = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
-
-    svg.selectAll(".bar")
-        .on("mouseover", (event, d) => {
-            tooltip.transition()
-                .duration(200)
-                .style("opacity", .9);
-            tooltip.html(`Trade (% of GDP): ${d["Trade (% of GDP)"]}<br>Unemployment: ${d["Unemployment Total (% of labor force)"]}%`)
-                .style("left", (event.pageX + 5) + "px")
-                .style("top", (event.pageY - 28) + "px");
-        })
-        .on("mouseout", (d) => {
-            tooltip.transition()
-                .duration(500)
-                .style("opacity", 0);
-        });
-});
+}
