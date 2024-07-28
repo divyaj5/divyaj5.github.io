@@ -1,6 +1,5 @@
 // script.js
 
-// Load the data
 let data;
 d3.csv("data/economic_indicators_2023.csv").then(loadedData => {
     data = loadedData;
@@ -10,32 +9,27 @@ d3.csv("data/economic_indicators_2023.csv").then(loadedData => {
         d["Unemployment Total (% of labor force)"] = +d["Unemployment Total (% of labor force)"];
     });
 
-    console.log("Data loaded:", data); // Debugging log
+    console.log("Data loaded:", data); 
 
-    // Initially show GDP data
     updateChart("GDP (current US$)");
     updateKeyPoints("GDP (current US$)");
 });
 
 function updateChart(indicator) {
-    console.log("Updating chart with indicator:", indicator); // Debugging log
+    console.log("Updating chart with indicator:", indicator); 
 
-    // Set up the margins and dimensions
-    const margin = { top: 20, right: 30, bottom: 40, left: 120 }, // Increased left margin
+    const margin = { top: 20, right: 30, bottom: 40, left: 120 }, 
           width = 800 - margin.left - margin.right,
           height = 500 - margin.top - margin.bottom;
 
-    // Remove the old SVG if it exists
     d3.select("#container").selectAll("*").remove();
 
-    // Create an SVG container
     const svg = d3.select("#container").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Set up the scales
     const x = d3.scaleLinear()
         .domain([0, d3.max(data, d => d[indicator])])
         .range([0, width]);
@@ -45,7 +39,6 @@ function updateChart(indicator) {
         .range([0, height])
         .padding(0.1);
 
-    // Create the bars
     svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
@@ -55,18 +48,15 @@ function updateChart(indicator) {
         .attr("width", d => x(d[indicator]))
         .attr("height", y.bandwidth());
 
-    // Add the x-axis
     svg.append("g")
         .attr("class", "x-axis")
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(x).ticks(5));
 
-    // Add the y-axis
     svg.append("g")
         .attr("class", "y-axis")
         .call(d3.axisLeft(y));
 
-    // Add x-axis label
     svg.append("text")
         .attr("class", "axis-label")
         .attr("x", width / 2)
@@ -74,7 +64,6 @@ function updateChart(indicator) {
         .style("text-anchor", "middle")
         .text(indicator);
 
-    // Add y-axis label
     svg.append("text")
         .attr("class", "axis-label")
         .attr("x", -margin.left / 2)
@@ -84,7 +73,7 @@ function updateChart(indicator) {
 }
 
 function updateKeyPoints(indicator) {
-    console.log("Updating key points with indicator:", indicator); // Debugging log
+    console.log("Updating key points with indicator:", indicator); 
     const keyPointsContainer = document.getElementById('key-points');
     keyPointsContainer.innerHTML = '';
 
@@ -109,7 +98,7 @@ function updateKeyPoints(indicator) {
         ];
     }
 
-    console.log("Key Points:", keyPoints); // Debugging log
+    console.log("Key Points:", keyPoints); 
 
     keyPoints.forEach(point => {
         const li = document.createElement('li');
@@ -117,5 +106,5 @@ function updateKeyPoints(indicator) {
         keyPointsContainer.appendChild(li);
     });
 
-    console.log("Updated key points container:", keyPointsContainer.innerHTML); // Debugging log
+    console.log("Updated key points container:", keyPointsContainer.innerHTML); 
 }
