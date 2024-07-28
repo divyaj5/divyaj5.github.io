@@ -46,8 +46,9 @@
         // Event listeners for the filters
         document.querySelectorAll('input[name="indicator"]').forEach((elem) => {
             elem.addEventListener('change', (event) => {
-                updateChart(event.target.value);
-                updateKeyPoints(event.target.value);
+                const indicator = event.target.value;
+                updateChart(indicator);
+                updateKeyPoints(indicator);
             });
         });
     </script>
