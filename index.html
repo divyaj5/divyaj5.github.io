@@ -1,55 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Economic Indicators 2023</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Global Economic Indicators 2023</h1>
-    <div class="filters">
-        <label>
-            <input type="radio" name="indicator" value="GDP (current US$)" checked>
-            GDP
-        </label>
-        <label>
-            <input type="radio" name="indicator" value="Trade (% of GDP)">
-            Trade
-        </label>
-        <label>
-            <input type="radio" name="indicator" value="Unemployment Total (% of labor force)">
-            Unemployment
-        </label>
-    </div>
-    <div class="flip-card">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <div id="container"></div>
-            </div>
-            <div class="flip-card-back">
-                <h2>Key Points</h2>
-                <ul id="key-points">
-                    <!-- Key points will be populated by JavaScript -->
-                </ul>
-            </div>
-        </div>
-    </div>
-    <button onclick="flipCard()">Flip Card</button>
-    <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-        function flipCard() {
-            document.querySelector('.flip-card-inner').classList.toggle('flipped');
-        }
-
-        document.querySelectorAll('input[name="indicator"]').forEach((elem) => {
-            elem.addEventListener('change', (event) => {
-                const indicator = event.target.value;
-                updateChart(indicator);
-                updateKeyPoints(indicator);
-            });
-        });
-    </script>
-</body>
+<!doctype html>
+<html>
+  <head>
+    <title>This is the title of the webpage!</title>
+  </head>
+  <body>
+    <!-- this is just a comment for IS445 Fall 2024 BCU/BCG -->
+    <p>This is an example paragraph for Fa2024-ID34983. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+  </body>
 </html>
