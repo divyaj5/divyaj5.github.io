@@ -11,19 +11,19 @@ custom_js:
 ---
 
 
-# Plot 1: Word Cloud of Report Descriptions
-Description: This plot visualizes the most frequent words extracted from descriptions in BFRO reports, highlighting common terms mentioned in observed experiences.
+# Plot 1: Bar Chart of Most Frequent Words
+Description: This bar chart displays the top 100 most frequent words found in the descriptions of BFRO reports. It visually represents the word count frequency, providing a clear and concise way to identify which terms are most commonly mentioned across the reports.
 
 Design Choices:
-Encoding Type: The word cloud displays word frequency, with word size representing frequency. The encoding is implicit as larger words are those mentioned more often.
-Color Scheme: The color scheme is default to WordCloud, with varied shades of color for different words based on frequency. I chose this to create visual distinction without overwhelming the viewer.
 
+Encoding Type: The bar chart uses horizontal bars where the length of the bars corresponds to the frequency of each word, and the words themselves are displayed along the y-axis. This is a clear representation of word frequency in a straightforward format.
+Color Scheme: The bars are colored according to their frequency, with darker colors indicating higher frequencies. This choice helps to quickly highlight the most frequent words and provides visual emphasis on them.
 Data Transformations:
-The data underwent cleaning by removing non-alphabetic characters and common stopwords using the NLTK library. This ensures the word cloud highlights meaningful terms relevant to the report descriptions.
-The descriptions column was processed by converting text to lowercase and stripping out non-letter characters to improve the accuracy of word frequency analysis.
 
+The original descriptions of the BFRO reports were cleaned to remove non-alphabetical characters and common stopwords (such as "the", "and", "a"), ensuring that the analysis focuses on meaningful words. The text was then split into individual words, and word frequencies were calculated. Only the top 100 most frequent words were selected for display in the bar chart.
 Interactivity:
-No interactivity was applied to the word cloud, as its purpose is to provide a general overview of word frequencies.
+
+Tooltip: Tooltips have been included, which display the word and its corresponding frequency when you hover over any of the bars. This interaction adds a layer of clarity, allowing users to explore the exact values behind each bar and making the visualization more engaging.
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/wordchart.json" style="width: 100%"></vegachart>
 
