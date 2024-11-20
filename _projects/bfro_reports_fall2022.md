@@ -1,7 +1,7 @@
 ---
 name: Exploring and Visualizing Trends in BFRO Reports
 tools: [Python, HTML, vega-lite, Altair]
-image: assets/pngs/cars.png
+image: assets/pngs/CoverPhoto.png
 description: This notebook explores and visualizes trends in BFRO (Bigfoot Field Researchers Organization) reports, using data analysis and interactive visualizations to uncover patterns over time and across various factors.
 custom_js:
   - vega.min
