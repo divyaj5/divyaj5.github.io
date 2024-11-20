@@ -27,6 +27,23 @@ Tooltip: Tooltips have been included, which display the word and its correspondi
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/wordchart.json" style="width: 100%"></vegachart>
 
+# Plot 2: UFO Sightings On A Map
+
+Description: This map visualization displays the geographical distribution of UFO sightings, plotting the locations of reported sightings across various regions. The points on the map represent individual UFO sighting occurrences, allowing users to explore patterns and concentrations of sightings based on location.
+
+Design Choices:
+Encoding Type: The locations of the sightings are encoded as points on the map, with latitude and longitude used as the positional encoding. This provides a spatial representation of the data, making it easy to see where sightings are most frequent.
+Color Scheme: If used, the points could be color-coded based on factors such as the year or the frequency of sightings in particular regions. For example, a gradient color scheme could represent sighting frequency, where lighter colors represent fewer sightings and darker colors indicate more sightings.
+
+Data Transformations:
+The dataset was cleaned to ensure only valid geographic coordinates (latitude and longitude) were used for mapping. Any missing or inconsistent location data were removed to avoid errors in the visualization.
+If relevant, the data could also be aggregated by region (e.g., by city, state, or country) to highlight regional trends in sightings.
+
+Interactivity:
+Tooltip: Tooltips can provide additional information when hovering over individual points, such as the date of the sighting or a brief description of the event, enhancing user engagement and providing more context for each sighting.
+
+<vegachart schema-url="{{ site.baseurl }}/assets/json/UFOSightingsOnMap.json" style="width: 100%"></vegachart>
+
 ## Search The Data & Methods
 
 Below is where we can put some links to both the data and the analysis code as buttons:
