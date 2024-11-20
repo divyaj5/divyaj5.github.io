@@ -11,20 +11,21 @@ custom_js:
 ---
 
 
-# Example including vega-lite
+# Plot 1: Word Cloud of Report Descriptions
+Description: This plot visualizes the most frequent words extracted from descriptions in BFRO reports, highlighting common terms mentioned in observed experiences.
 
-Example comes from this [great blog post right here](https://blog.4dcu.be/programming/2021/05/03/Interactive-Visualizations.html) that was also used in [our test import script](https://github.com/UIUC-iSchool-DataViz/is445_bcubcg_fall2022/blob/main/week01/test_imports_week01.ipynb).
+Design Choices:
+Encoding Type: The word cloud displays word frequency, with word size representing frequency. The encoding is implicit as larger words are those mentioned more often.
+Color Scheme: The color scheme is default to WordCloud, with varied shades of color for different words based on frequency. I chose this to create visual distinction without overwhelming the viewer.
 
-We can use a vegachart HTML tag like so:
+Data Transformations:
+The data underwent cleaning by removing non-alphabetic characters and common stopwords using the NLTK library. This ensures the word cloud highlights meaningful terms relevant to the report descriptions.
+The descriptions column was processed by converting text to lowercase and stripping out non-letter characters to improve the accuracy of word frequency analysis.
 
-```
+Interactivity:
+No interactivity was applied to the word cloud, as its purpose is to provide a general overview of word frequencies.
+
 <vegachart schema-url="{{ site.baseurl }}/assets/json/wordchart.json" style="width: 100%"></vegachart>
-```
-
-<vegachart schema-url="{{ site.baseurl }}/assets/json/wordchart.json" style="width: 100%"></vegachart>
-
-In theory, you can also use [Jekyll hooks](https://jekyllrb.com/docs/plugins/hooks/) to do it, but I haven't figured out a way that looks nice yet.
-
 
 ## Search The Data & Methods
 
