@@ -1,6 +1,6 @@
 ---
 name: bfro_reports_fall2022
-tools: [Python, HTML, vega-lite]
+tools: [Python, HTML, vega-lite, Altair]
 image: assets/pngs/cars.png
 description: This is a "showcase" project that uses vega-lite for interactive viz!
 custom_js:
