@@ -40,7 +40,7 @@ The dataset was cleaned to ensure only valid geographic coordinates (latitude an
 If relevant, the data could also be aggregated by region (e.g., by city, state, or country) to highlight regional trends in sightings.
 
 Interactivity:
-Tooltip: Tooltips can provide additional information when hovering over individual points, such as the date of the sighting or a brief description of the event, enhancing user engagement and providing more context for each sighting.
+Tooltip: Tooltips can provide additional information when hovering over individual points, such as the date of the sighting or a brief description of the event, enhancing user engagement and providing more context for each sighting. ..
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/UFOSightingsOnMap.json" style="width: 100%"></vegachart>
 
