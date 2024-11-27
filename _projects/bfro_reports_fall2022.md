@@ -18,9 +18,11 @@ Design Choices:
 
 Encoding Type: The bar chart uses horizontal bars where the length of the bars corresponds to the frequency of each word, and the words themselves are displayed along the y-axis. This is a clear representation of word frequency in a straightforward format.
 Color Scheme: The bars are colored according to their frequency, with darker colors indicating higher frequencies. This choice helps to quickly highlight the most frequent words and provides visual emphasis on them.
+
 Data Transformations:
 
 The original descriptions of the BFRO reports were cleaned to remove non-alphabetical characters and common stopwords (such as "the", "and", "a"), ensuring that the analysis focuses on meaningful words. The text was then split into individual words, and word frequencies were calculated. Only the top 100 most frequent words were selected for display in the bar chart.
+
 Interactivity:
 
 Tooltip: Tooltips have been included, which display the word and its corresponding frequency when you hover over any of the bars. This interaction adds a layer of clarity, allowing users to explore the exact values behind each bar and making the visualization more engaging.
@@ -29,18 +31,19 @@ Tooltip: Tooltips have been included, which display the word and its correspondi
 
 # Plot 2: Big Foot Sightings By State
 
-Description: This map visualization displays the geographical distribution of UFO sightings, plotting the locations of reported sightings across various regions. The points on the map represent individual UFO sighting occurrences, allowing users to explore patterns and concentrations of sightings based on location.
+Description: In this plot, we visualize the number of Bigfoot sightings by state, using a bar chart to display the frequency of sightings across different regions in the U.S. Each bar represents a state, with the height of the bar corresponding to the number of sightings reported in that state. The data is aggregated by state, and the count of sightings is computed using the groupby() function in pandas.
 
 Design Choices:
-Encoding Type: The locations of the sightings are encoded as points on the map, with latitude and longitude used as the positional encoding. This provides a spatial representation of the data, making it easy to see where sightings are most frequent.
-Color Scheme: If used, the points could be color-coded based on factors such as the year or the frequency of sightings in particular regions. For example, a gradient color scheme could represent sighting frequency, where lighter colors represent fewer sightings and darker colors indicate more sightings.
+
+For the design choices, I used the bar chart type because it is effective for comparing discrete quantities across different categories—in this case, the states. I encoded the state variable on the x-axis as a nominal (categorical) variable, which represents the different states, and the sightings_count on the y-axis as a quantitative (continuous) variable, indicating the number of sightings. I also used the color encoding to differentiate the states, applying distinct colors to each state. This helps in visually distinguishing the regions more easily. The color encoding also adds an extra layer of information, emphasizing that the data represents different geographic regions. The color scheme was chosen to be visually distinct to ensure clarity and accessibility.
 
 Data Transformations:
-The dataset was cleaned to ensure only valid geographic coordinates (latitude and longitude) were used for mapping. Any missing or inconsistent location data were removed to avoid errors in the visualization.
-If relevant, the data could also be aggregated by region (e.g., by city, state, or country) to highlight regional trends in sightings.
+
+In terms of data transformations, the dataset was initially loaded directly from the source, and I performed a groupby operation on the state column to aggregate the data by state. This step was crucial to calculate the number of sightings for each state, which was then plotted in the chart. No other significant data transformations were required for this plot.
 
 Interactivity:
-Tooltip: Tooltips can provide additional information when hovering over individual points, such as the date of the sighting or a brief description of the event, enhancing user engagement and providing more context for each sighting. ..
+
+For the interactivity aspect, I added zoom and pan capabilities to the bar chart using Altair’s interactive() function. This allows users to zoom in on specific states, making it easier to focus on regions with a larger or smaller number of sightings. The interactivity improves the user experience by enabling a more detailed exploration of the data without overwhelming the viewer with all the information at once. The zoom and pan functionality in the plot provides valuable interactivity, particularly for users who may be interested in focusing on specific states with a larger or smaller number of sightings. This interactivity allows for a deeper exploration of the data, especially when the chart contains a large number of states. Users can select a region of the chart to zoom in, providing a more granular view of the sightings data. The inclusion of this interactive feature adds flexibility to the visualization, making it easier for users to analyze trends in specific parts of the dataset.
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/BigfootSightingsbyState.json" style="width: 100%"></vegachart>
 
