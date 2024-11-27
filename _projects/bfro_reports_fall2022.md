@@ -27,7 +27,7 @@ Tooltip: Tooltips have been included, which display the word and its correspondi
 
 <vegachart schema-url="{{ site.baseurl }}/assets/json/wordchart.json" style="width: 100%"></vegachart>
 
-# Plot 2: UFO Sightings On A Map
+# Plot 2: Big Foot Sightings By State
 
 Description: This map visualization displays the geographical distribution of UFO sightings, plotting the locations of reported sightings across various regions. The points on the map represent individual UFO sighting occurrences, allowing users to explore patterns and concentrations of sightings based on location.
 
@@ -42,7 +42,7 @@ If relevant, the data could also be aggregated by region (e.g., by city, state, 
 Interactivity:
 Tooltip: Tooltips can provide additional information when hovering over individual points, such as the date of the sighting or a brief description of the event, enhancing user engagement and providing more context for each sighting. ..
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/UFOSightingsOnMap.json" style="width: 100%"></vegachart>
+<vegachart schema-url="{{ site.baseurl }}/assets/json/BigfootSightingsbyState.json" style="width: 100%"></vegachart>
 
 
 <div class="left">
